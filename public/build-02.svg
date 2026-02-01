@@ -1,0 +1,9 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#0B0B10"/>
+  <rect x="120" y="260" width="920" height="280" rx="140" fill="#2A1C3F"/>
+  <rect x="160" y="300" width="320" height="90" rx="45" fill="#FFFFFF" opacity="0.2"/>
+  <circle cx="330" cy="600" r="70" fill="#050507" opacity="0.8"/>
+  <circle cx="900" cy="600" r="70" fill="#050507" opacity="0.8"/>
+  <text x="90" y="160" fill="#FFFFFF" font-size="42" font-family="Arial" font-weight="700" letter-spacing="5">VELOCITY R</text>
+  <text x="90" y="210" fill="#DCCBFF" font-size="18" font-family="Arial" letter-spacing="4">BUILD IMAGE PLACEHOLDER</text>
+</svg>

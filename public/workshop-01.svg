@@ -1,0 +1,8 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#0B0B10"/>
+  <rect x="120" y="160" width="960" height="580" rx="50" fill="#1A1326"/>
+  <rect x="200" y="260" width="360" height="200" rx="24" fill="#764E9B" opacity="0.75"/>
+  <rect x="620" y="260" width="360" height="200" rx="24" fill="#3C2B5A" opacity="0.7"/>
+  <text x="180" y="220" fill="#FFFFFF" font-size="36" font-family="Arial" font-weight="700" letter-spacing="5">WORKSHOP HQ</text>
+  <text x="180" y="260" fill="#DCCBFF" font-size="16" font-family="Arial" letter-spacing="4">CONTACT IMAGE PLACEHOLDER</text>
+</svg>

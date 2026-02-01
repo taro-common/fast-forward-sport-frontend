@@ -1,0 +1,12 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="url(#paint0_linear)"/>
+  <rect x="80" y="580" width="1040" height="200" rx="40" fill="#000000" opacity="0.55"/>
+  <text x="100" y="650" fill="#FFFFFF" font-size="32" font-family="Arial" font-weight="700" letter-spacing="4">HIGHLAND RALLY X</text>
+  <text x="100" y="700" fill="#DCCBFF" font-size="16" font-family="Arial" letter-spacing="4">EVENT IMAGE PLACEHOLDER</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3C2B5A"/>
+      <stop offset="1" stop-color="#050507"/>
+    </linearGradient>
+  </defs>
+</svg>

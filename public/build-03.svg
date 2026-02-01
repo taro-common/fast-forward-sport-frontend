@@ -1,0 +1,9 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#0B0B10"/>
+  <rect x="90" y="260" width="980" height="280" rx="140" fill="#3C2B5A"/>
+  <rect x="180" y="300" width="320" height="90" rx="45" fill="#FFFFFF" opacity="0.2"/>
+  <circle cx="320" cy="600" r="70" fill="#0F0F17" opacity="0.8"/>
+  <circle cx="920" cy="600" r="70" fill="#0F0F17" opacity="0.8"/>
+  <text x="90" y="160" fill="#FFFFFF" font-size="42" font-family="Arial" font-weight="700" letter-spacing="5">APEX RALLY EVO</text>
+  <text x="90" y="210" fill="#DCCBFF" font-size="18" font-family="Arial" letter-spacing="4">BUILD IMAGE PLACEHOLDER</text>
+</svg>
