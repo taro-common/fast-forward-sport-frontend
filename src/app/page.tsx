@@ -299,15 +299,15 @@ export default function Home() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[#0b0d10]" />
-          <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-20 pt-28 md:grid-cols-[1.2fr_0.8fr]">
+          <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/50 to-[#0b0d10]" />
+          <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-20 pt-20 md:grid-cols-[1.2fr_0.8fr]">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/40 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-white/70">
                 {t("header.partner")}
               </div>
-              <h1 className="text-4xl font-semibold uppercase tracking-[0.12em] md:text-6xl">
+              <h1 className="text-4xl font-semibold uppercase  md:text-6xl">
                 {t("header.title1")}
-                <span className="block text-[#E11D48]">
+                <span className="block text-[#E11D48] text-3xl">
                   {t("header.title2")}
                 </span>
               </h1>
@@ -316,13 +316,13 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  className="rounded-full bg-[#E11D48] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:translate-y-[-2px]"
+                  className="rounded-full bg-[#E11D48] px-6 py-3 text-xs font-semibold text-white transition hover:translate-y-0.5"
                   href="#programs"
                 >
                   {t("buttons.viewPrograms")}
                 </a>
                 <a
-                  className="rounded-full border border-white/30 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white"
+                  className="rounded-full border border-white/30 px-6 py-3 text-xs font-semibold text-white transition hover:border-white"
                   href="#calendar"
                 >
                   {t("buttons.calendar")}
@@ -337,7 +337,7 @@ export default function Home() {
                     <p className="text-2xl font-semibold text-white">
                       {item.value}
                     </p>
-                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">
+                    <p className="text-xs uppercase text-white/60">
                       {item.label}
                     </p>
                   </div>
@@ -346,7 +346,7 @@ export default function Home() {
             </div>
             <div className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
               <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-white/60">
+                <p className="text-xs uppercase tracking-[0.15em] text-white/60">
                   Featured Program
                 </p>
                 <p className="text-2xl font-semibold">Raptor GT-X</p>
@@ -405,7 +405,7 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold uppercase tracking-[0.2em]">
+                      <h3 className="text-sm font-semibold uppercase">
                         {item.title}
                       </h3>
                       <p className="text-sm text-white/70">{item.summary}</p>
@@ -414,19 +414,19 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="group relative min-h-[320px] overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50">
+            <div className="group relative min-h-80 overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50">
               <Image
                 src="/images/img14.jpg"
                 alt="FAST Forward Sport featured car"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-all duration-300 group-hover:from-black/85" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent transition-all duration-300 group-hover:from-black/85" />
               <div className="absolute bottom-6 left-6">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/70">
                   Signature Build
                 </p>
-                <h3 className="text-2xl font-semibold uppercase tracking-[0.1em]">
+                <h3 className="text-2xl font-semibold uppercase tracking-widest">
                   Apex Rally Evo
                 </h3>
                 <p className="mt-2 text-sm text-white/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -459,14 +459,14 @@ export default function Home() {
                   key={program.title}
                   className="group overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d10] transition-all hover:border-[#E11D48]/50"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-4/3 overflow-hidden">
                     <Image
                       src={program.image}
                       alt={program.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     <div className="absolute inset-0 flex items-center justify-center p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <p className="text-center text-sm leading-relaxed text-white">
                         {program.summary}
@@ -477,7 +477,7 @@ export default function Home() {
                     <div className="inline-flex rounded-full border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-white/60">
                       {program.tag}
                     </div>
-                    <h3 className="text-xl font-semibold uppercase tracking-[0.1em]">
+                    <h3 className="text-xl font-semibold uppercase tracking-widest">
                       {program.title}
                     </h3>
                     <p className="text-sm text-white/70">{program.summary}</p>
@@ -496,7 +496,7 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
               {t("rally.label")}
             </p>
-            <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
+            <h2 className="text-3xl font-semibold uppercase tracking-widest md:text-4xl">
               {t("rally.heading")}
             </h2>
             <p className="text-white/70">{t("rally.desc")}</p>
@@ -512,7 +512,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50">
+          <div className="group relative aspect-4/3 overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50">
             <Image
               src="/images/img5.jpg"
               alt="FAST Forward Sport rally team"
@@ -578,7 +578,7 @@ export default function Home() {
             {calendar.map((event) => (
               <article
                 key={event.name}
-                className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50"
+                className="group relative aspect-4/3 overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50"
               >
                 <Image
                   src={event.image}
@@ -586,12 +586,12 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="relative flex h-full flex-col justify-end gap-2 p-6">
                   <p className="text-xs uppercase tracking-[0.3em] text-white/70">
                     {event.date}
                   </p>
-                  <h3 className="text-xl font-semibold uppercase tracking-[0.1em]">
+                  <h3 className="text-xl font-semibold uppercase tracking-widest">
                     {event.name}
                   </h3>
                   <p className="text-sm text-white/70">{event.location}</p>
@@ -633,7 +633,7 @@ export default function Home() {
                   type="text"
                 />
                 <textarea
-                  className="min-h-[140px] w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/40"
+                  className="min-h-35 w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/40"
                   placeholder={t("contact.form.message")}
                 />
                 <button
@@ -645,7 +645,7 @@ export default function Home() {
               </form>
             </div>
             <div className="space-y-6">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10">
+              <div className="relative aspect-4/3 overflow-hidden rounded-3xl border border-white/10">
                 <Image
                   src="/images/img6.jpg"
                   alt="FAST Forward Sport facility"
@@ -654,7 +654,7 @@ export default function Home() {
                 />
               </div>
               <div className="rounded-3xl border border-white/10 bg-black/40 p-6">
-                <h3 className="text-lg font-semibold uppercase tracking-[0.1em]">
+                <h3 className="text-lg font-semibold uppercase tracking-widest">
                   Performance Lab HQ
                 </h3>
                 <p className="mt-3 text-sm text-white/70">
@@ -663,7 +663,7 @@ export default function Home() {
                   <br /> Mon–Sat · 09:00–20:00
                   <br /> +81 (0)3-5555-7777
                 </p>
-                <div className="mt-6 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-white/60">
+                <div className="mt-6 flex flex-wrap gap-2 text-xs uppercase tracking-widest text-white/60">
                   <span className="rounded-full border border-white/20 px-3 py-1">
                     Aero Systems
                   </span>
@@ -683,7 +683,7 @@ export default function Home() {
       <footer className="border-t border-white/5 bg-[#0b0d10]">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
           <p>{t("footer.copyright")}</p>
-          <div className="flex gap-6 uppercase tracking-[0.3em]">
+          <div className="flex gap-6 uppercase tracking-widest">
             {(lang === "en" ? en.footer.links : ja.footer.links).map((l) => (
               <span key={l}>{l}</span>
             ))}
