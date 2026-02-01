@@ -569,10 +569,10 @@ export default function Home() {
               <h2 className="pt-5 text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
                 {t("calendar.heading")}
               </h2>
+              <p className="pt-5 pb-4 text-sm text-white/70">
+                {t("calendar.desc")}
+              </p>
             </div>
-            <p className="max-w-md text-sm text-white/70">
-              {t("calendar.desc")}
-            </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             {calendar.map((event) => (
