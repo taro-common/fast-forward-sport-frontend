@@ -445,13 +445,13 @@ export default function Home() {
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
                   {t("programs.label")}
                 </p>
-                <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
+                <h2 className="pt-5 text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
                   {t("programs.heading")}
                 </h2>
+                <p className="pt-5 text-sm text-white/70">
+                  {t("programs.desc")}
+                </p>
               </div>
-              <p className="max-w-md text-sm text-white/70">
-                {t("programs.desc")}
-              </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
               {programs.map((program) => (
