@@ -1,4 +1,9 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import en from "../i18n/en";
+import ja from "../i18n/ja";
 
 const programs = [
   {
@@ -92,6 +97,28 @@ const highlights = [
 ];
 
 export default function Home() {
+  const translations = { en, ja } as const;
+  const [lang, setLang] = useState("en");
+
+  useEffect(() => {
+    try {
+      const nav = navigator.language || navigator.userLanguage;
+      if (nav && nav.startsWith("ja")) setLang("ja");
+    } catch (e) {
+      // noop (server/SSR safe)
+    }
+  }, []);
+
+  const t = (key: string) => {
+    const parts = key.split(".");
+    let cur: any = translations[lang as keyof typeof translations];
+    for (const p of parts) {
+      if (!cur) return key;
+      cur = cur[p];
+    }
+    return typeof cur === "string" ? cur : key;
+  };
+
   return (
     <div className="min-h-screen bg-[#0b0d10] text-white">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b0d10]/85 backdrop-blur">
@@ -105,7 +132,7 @@ export default function Home() {
             />
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-white/60">
-                Motorsport Division
+                {t("header.division")}
               </p>
               <span className="text-lg font-semibold tracking-[0.2em]">
                 FAST Forward Sport
@@ -114,31 +141,36 @@ export default function Home() {
           </div>
           <nav className="hidden items-center gap-8 text-xs font-semibold uppercase text-white/70 md:flex">
             <a className="transition hover:text-white" href="#featured">
-              Featured
+              {t("nav.featured")}
             </a>
             <a className="transition hover:text-white" href="#programs">
-              Programs
+              {t("nav.programs")}
             </a>
             <a className="transition hover:text-white" href="#rally">
-              Rally
+              {t("nav.rally")}
             </a>
             <a className="transition hover:text-white" href="#news">
-              News
+              {t("nav.news")}
             </a>
             <a className="transition hover:text-white" href="#calendar">
-              Calendar
+              {t("nav.calendar")}
             </a>
           </nav>
           <div className="flex items-center gap-4">
-            <div
-              id="google_translate_element"
-              className="translate-container"
-            />
+            <select
+              value={lang}
+              onChange={(e) => setLang(e.target.value)}
+              className="rounded-full border border-white/20 bg-black/40 px-3 py-2 text-xs font-semibold text-white"
+              aria-label="Language"
+            >
+              <option value="en">EN</option>
+              <option value="ja">日本語</option>
+            </select>
             <a
               className="rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase text-white transition hover:border-[#E11D48] hover:text-[#E11D48]"
               href="#contact"
             >
-              Get In Touch
+              {t("buttons.inquiry")}
             </a>
           </div>
         </div>
@@ -147,7 +179,7 @@ export default function Home() {
       <main>
         <section className="relative overflow-hidden">
           <Image
-            src="/images/img1.jpg"
+            src="/images/img18.jpg"
             alt="FAST Forward Sport hero"
             fill
             priority
@@ -157,29 +189,29 @@ export default function Home() {
           <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-20 pt-28 md:grid-cols-[1.2fr_0.8fr]">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/40 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-white/70">
-                Official Motorsport Partner
+                {t("header.partner")}
               </div>
               <h1 className="text-4xl font-semibold uppercase tracking-[0.12em] md:text-6xl">
-                Built to Win
-                <span className="block text-[#E11D48]">Every Stage</span>
+                {t("header.title1")}
+                <span className="block text-[#E11D48]">
+                  {t("header.title2")}
+                </span>
               </h1>
               <p className="max-w-xl text-base text-white/70 md:text-lg">
-                FAST Forward Sport delivers rally, GT, and prototype programs
-                with uncompromising engineering, data-first strategy, and
-                relentless execution on race week.
+                {t("header.subtitle")}
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   className="rounded-full bg-[#E11D48] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:translate-y-[-2px]"
                   href="#programs"
                 >
-                  View Programs
+                  {t("buttons.viewPrograms")}
                 </a>
                 <a
                   className="rounded-full border border-white/30 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-white"
                   href="#calendar"
                 >
-                  2026 Calendar
+                  {t("buttons.calendar")}
                 </a>
               </div>
               <div className="grid grid-cols-2 gap-4 pt-4 text-sm md:grid-cols-4">
@@ -238,15 +270,12 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
-                Featured
+                {t("featured.label")}
               </p>
               <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
-                Factory Programs &amp; Customer Racing
+                {t("featured.heading")}
               </h2>
-              <p className="text-white/70">
-                From WRC to endurance GT, we craft programs with dedicated
-                engineering pods, pit-wall analytics, and logistics control.
-              </p>
+              <p className="text-white/70">{t("featured.desc")}</p>
               <div className="space-y-4">
                 {highlights.map((item) => (
                   <article
@@ -300,15 +329,14 @@ export default function Home() {
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
-                  Programs
+                  {t("programs.label")}
                 </p>
                 <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
-                  Factory-Level Race Programs
+                  {t("programs.heading")}
                 </h2>
               </div>
               <p className="max-w-md text-sm text-white/70">
-                Bespoke vehicles, engineering support, and data strategy for
-                teams pushing for the front row.
+                {t("programs.desc")}
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -352,16 +380,12 @@ export default function Home() {
         >
           <div className="space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
-              Rally Systems
+              {t("rally.label")}
             </p>
             <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
-              Built for Gravel, Ice, and Tarmac
+              {t("rally.heading")}
             </h2>
-            <p className="text-white/70">
-              Our rally unit pairs adaptive driveline control with rapid
-              serviceability. Every component is optimized for stage recovery,
-              traction, and driver confidence.
-            </p>
+            <p className="text-white/70">{t("rally.desc")}</p>
             <div className="grid gap-4 text-sm text-white/70">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 Differential tuning with live torque-vectoring overrides.
@@ -396,15 +420,12 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
-                Newsroom
+                {t("news.label")}
               </p>
               <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
-                Latest Updates &amp; Insights
+                {t("news.heading")}
               </h2>
-              <p className="text-white/70">
-                Performance, engineering updates, and race week intelligence
-                from across our programs.
-              </p>
+              <p className="text-white/70">{t("news.desc")}</p>
             </div>
             <div className="space-y-4">
               {news.map((item) => (
@@ -429,15 +450,14 @@ export default function Home() {
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
-                2026 Calendar
+                {t("calendar.label")}
               </p>
               <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
-                Schedule &amp; Race Services
+                {t("calendar.heading")}
               </h2>
             </div>
             <p className="max-w-md text-sm text-white/70">
-              Full-season support with logistics, pit operations, and
-              engineering staff at every round.
+              {t("calendar.desc")}
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
@@ -474,42 +494,39 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
-                Contact &amp; Facility
+                {t("contact.label")}
               </p>
               <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
-                Start a Program Review
+                {t("contact.heading")}
               </h2>
-              <p className="text-white/70">
-                Tell us your series, timing, and targets. Our engineering team
-                will respond with a program roadmap and technical proposal.
-              </p>
+              <p className="text-white/70">{t("contact.desc")}</p>
               <form className="grid gap-4">
                 <div className="grid gap-4 md:grid-cols-2">
                   <input
                     className="w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/40"
-                    placeholder="Name"
+                    placeholder={t("contact.form.name")}
                     type="text"
                   />
                   <input
                     className="w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/40"
-                    placeholder="Email"
+                    placeholder={t("contact.form.email")}
                     type="email"
                   />
                 </div>
                 <input
                   className="w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/40"
-                  placeholder="Series / Team"
+                  placeholder={t("contact.form.series")}
                   type="text"
                 />
                 <textarea
                   className="min-h-[140px] w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-white/40"
-                  placeholder="Performance goals, program scope, timing"
+                  placeholder={t("contact.form.message")}
                 />
                 <button
                   className="w-fit rounded-full bg-[#E11D48] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white"
                   type="submit"
                 >
-                  Submit Inquiry
+                  {t("contact.form.submit")}
                 </button>
               </form>
             </div>
@@ -551,11 +568,11 @@ export default function Home() {
 
       <footer className="border-t border-white/5 bg-[#0b0d10]">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 FAST Forward Sport. All rights reserved.</p>
+          <p>{t("footer.copyright")}</p>
           <div className="flex gap-6 uppercase tracking-[0.3em]">
-            <span>Instagram</span>
-            <span>Youtube</span>
-            <span>Press</span>
+            {(lang === "en" ? en.footer.links : ja.footer.links).map((l) => (
+              <span key={l}>{l}</span>
+            ))}
           </div>
         </div>
       </footer>
