@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import en from "../i18n/en";
 import ja from "../i18n/ja";
+import LanguageDropdown from "../components/LanguageDropdown";
 
 const programs = [
   {
@@ -99,6 +100,7 @@ const highlights = [
 export default function Home() {
   const translations = { en, ja } as const;
   const [lang, setLang] = useState("en");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -160,23 +162,132 @@ export default function Home() {
             </a>
           </nav>
           <div className="flex items-center gap-4">
-            <select
-              value={lang}
-              onChange={(e) => setLang(e.target.value)}
-              className="rounded-full border border-white/20 bg-black/40 px-3 py-2 text-xs font-semibold text-white"
-              aria-label="Language"
+            <button
+              onClick={() => setMenuOpen((s) => !s)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              className="inline-flex items-center justify-center rounded-md border border-white/10 p-2 text-white md:hidden"
             >
-              <option value="en">EN</option>
-              <option value="ja">日本語</option>
-            </select>
+              {menuOpen ? (
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 6L18 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M6 18L18 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 12H21"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M3 6H21"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M3 18H21"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+            </button>
+            <LanguageDropdown
+              value={lang}
+              onChange={(v) => setLang(v)}
+              options={[
+                { value: "en", label: "EN" },
+                { value: "ja", label: "日本語" },
+              ]}
+            />
             <a
-              className="rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase text-white transition hover:border-[#E11D48] hover:text-[#E11D48]"
+              className="hidden md:inline-block rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase text-white transition hover:border-[#E11D48] hover:text-[#E11D48]"
               href="#contact"
             >
               {t("buttons.inquiry")}
             </a>
           </div>
         </div>
+        {menuOpen && (
+          <div className="absolute left-0 right-0 top-full z-40 md:hidden">
+            <div className="border-t border-white/5 bg-[#0b0d10] px-6 py-4">
+              <nav className="flex flex-col gap-3">
+                <a
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded px-3 py-2 text-sm font-semibold transition hover:text-white"
+                  href="#featured"
+                >
+                  {t("nav.featured")}
+                </a>
+                <a
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded px-3 py-2 text-sm font-semibold transition hover:text-white"
+                  href="#programs"
+                >
+                  {t("nav.programs")}
+                </a>
+                <a
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded px-3 py-2 text-sm font-semibold transition hover:text-white"
+                  href="#rally"
+                >
+                  {t("nav.rally")}
+                </a>
+                <a
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded px-3 py-2 text-sm font-semibold transition hover:text-white"
+                  href="#news"
+                >
+                  {t("nav.news")}
+                </a>
+                <a
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded px-3 py-2 text-sm font-semibold transition hover:text-white"
+                  href="#calendar"
+                >
+                  {t("nav.calendar")}
+                </a>
+                <a
+                  onClick={() => setMenuOpen(false)}
+                  className="mt-2 inline-block rounded-full border border-white/20 px-5 py-2 text-xs font-semibold uppercase text-white transition hover:border-[#E11D48] hover:text-[#E11D48]"
+                  href="#contact"
+                >
+                  {t("buttons.inquiry")}
+                </a>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
 
       <main>
