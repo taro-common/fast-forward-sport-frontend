@@ -102,8 +102,11 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      const nav = navigator.language || navigator.userLanguage;
-      if (nav && nav.startsWith("ja")) setLang("ja");
+      const nav =
+        (typeof navigator !== "undefined" &&
+          ((navigator as any).language || (navigator as any).userLanguage)) ||
+        "";
+      if (nav && (nav as string).startsWith("ja")) setLang("ja");
     } catch (e) {
       // noop (server/SSR safe)
     }
