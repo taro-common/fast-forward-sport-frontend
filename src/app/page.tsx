@@ -396,7 +396,7 @@ export default function Home() {
                     key={item.title}
                     className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-[#0b0d10] p-4 transition-all hover:border-[#E11D48]/50 hover:bg-[#0f1218]"
                   >
-                    <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl">
+                    <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl">
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -566,7 +566,7 @@ export default function Home() {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E11D48]">
                 {t("calendar.label")}
               </p>
-              <h2 className="text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
+              <h2 className="pt-5 text-3xl font-semibold uppercase tracking-[0.08em] md:text-4xl">
                 {t("calendar.heading")}
               </h2>
             </div>
