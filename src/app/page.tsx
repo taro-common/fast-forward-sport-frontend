@@ -10,13 +10,13 @@ const programs = [
   {
     title: "GT & Sprint",
     summary: "High-downforce aero kits and endurance cooling packages.",
-    image: "/images/img2.jpg",
+    image: "/images/img13.jpg",
     tag: "Circuit",
   },
   {
     title: "Rally Spec",
     summary: "Long-travel suspension, gravel driveline, instant torque maps.",
-    image: "/images/img3.jpg",
+    image: "/images/img9.jpg",
     tag: "Gravel",
   },
   {
@@ -62,7 +62,7 @@ const calendar = [
     name: "Highland Rally X",
     date: "May 21, 2026",
     location: "Nagano Ridge",
-    image: "/images/img9.jpg",
+    image: "/images/img30.jpg",
   },
   {
     name: "Enduro 8H",
@@ -416,7 +416,7 @@ export default function Home() {
             </div>
             <div className="group relative min-h-80 overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50">
               <Image
-                src="/images/img14.jpg"
+                src="/images/img27.jpg"
                 alt="FAST Forward Sport featured car"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -514,7 +514,7 @@ export default function Home() {
           </div>
           <div className="group relative aspect-4/3 overflow-hidden rounded-3xl border border-white/10 transition-all hover:border-[#E11D48]/50">
             <Image
-              src="/images/img5.jpg"
+              src="/images/img3.jpg"
               alt="FAST Forward Sport rally team"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
