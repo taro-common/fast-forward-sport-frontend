@@ -50,13 +50,13 @@ const calendar = [
     name: "Sakura Sprint",
     date: "Mar 12, 2026",
     location: "Suzuka East",
-    image: "/images/img7.jpg",
+    image: "/images/img1.jpg",
   },
   {
     name: "Coastal GT 500",
     date: "Apr 06, 2026",
     location: "Shonan Circuit",
-    image: "/images/img8.jpg",
+    image: "/images/img16.jpg",
   },
   {
     name: "Highland Rally X",
@@ -68,7 +68,7 @@ const calendar = [
     name: "Enduro 8H",
     date: "Jun 18, 2026",
     location: "Fuji Endurance Park",
-    image: "/images/img10.jpg",
+    image: "/images/img31.jpg",
   },
 ];
 
